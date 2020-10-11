@@ -254,13 +254,15 @@ class Draughts {
     }
     canPlayerCapture(gameId: string, player: number) {
         const game: Game = this.getGame(gameId);
-        let possibleMoves: Move[] = [];
+        //let possibleMoves: Move[] = [];
         // for each row
         game.spaces.forEach((row, x: number) => {
             // for each space
             row.forEach((space: Space, y: number) => {
                 // for each piece belonging to player
                 if (player === space.player) {
+
+                    console.log(x, y)
 
                     // which direction are we moving in?
                     //const direction: number = space.player === 1 ? -2 : +2
@@ -273,9 +275,9 @@ class Draughts {
                     // can a king capture any direction?
                     //if (space.king) {
 
-                        // backward and left
+                    // backward and left
 
-                        // backward and right
+                    // backward and right
 
                     //}
                 }
