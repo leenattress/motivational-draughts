@@ -1,0 +1,110 @@
+:host {
+    display: block;
+}
+
+.square-aspect {
+    position: relative;
+    width: 100%;
+}
+
+.square-aspect:after {
+    content: '';
+    display: block;
+    padding-bottom: 100%;
+}
+
+.square-aspect--content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.board {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+}
+
+.space {
+    position: absolute;
+    width: 12.5%;
+    height: 12.5%;
+    cursor: pointer;
+}
+
+.space-white {
+    background: rgb(212, 212, 212);
+    background: linear-gradient( 180deg, rgba(212, 212, 212, 1) 0%, rgba(235, 235, 235, 1) 45%);
+}
+
+.space-black {
+    background: rgb(83, 83, 83);
+    background: linear-gradient( 180deg, rgba(83, 83, 83, 1) 0%, rgba(122, 122, 122, 1) 74%);
+}
+
+.space-selected {
+    background: rgb(104, 182, 61);
+    background: linear-gradient( 180deg, rgba(104, 182, 61, 1) 0%, rgba(78, 185, 70, 1) 47%, rgba(137, 224, 117, 1) 100%);
+}
+
+.space-occupied {
+    cursor: pointer;
+}
+
+.piece {
+    border-radius: 9999px;
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.3s ease-in-out;
+    box-shadow: 10px 10px 22px 3px rgba(0, 0, 0, 0.69), 0px 0px 2px 2px rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+}
+
+.piece-kinged {
+    border-radius: 9999px;
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    background-image: url('/assets/king-white.png');
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+}
+
+
+/* .piece:hover {
+  transform: translate(-60%, -60%) scale(1.1);
+  box-shadow: 25px 25px 22px 3px rgba(0, 0, 0, 0.4),
+    0px 0px 12px 12px rgba(255, 255, 255, 0.3);
+} */
+
+.piece-white {
+    background: rgb(224, 224, 224);
+    background: linear-gradient( 180deg, rgba(224, 224, 224, 1) 0%, rgba(189, 189, 189, 1) 47%, rgba(148, 148, 148, 1) 100%);
+    box-shadow: 0px 4px 0px 0px rgb(105, 105, 105);
+}
+
+.piece-black {
+    background: rgb(55, 55, 55);
+    background: linear-gradient( 180deg, rgba(55, 55, 55, 1) 0%, rgba(31, 31, 31, 1) 47%, rgba(66, 66, 66, 1) 100%);
+    box-shadow: 0px 4px 0px 0px rgb(46, 46, 46);
+}
+
+.piece-selected {
+    transform: translate(-60%, -60%) scale(1.1);
+    box-shadow: 20px 20px 20px 3px rgba(0, 0, 0, 0.4), 0px 0px 12px 12px rgba(255, 255, 255, 0.3);
+}
+
+.notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+}
