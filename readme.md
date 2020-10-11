@@ -37,6 +37,7 @@ To develop, run:
 
 ```bash
 cd client
+npm install
 npm start
 ```
 Then visit: [http://localhost:3333/](http://localhost:3333/)
@@ -47,7 +48,6 @@ Then visit: [http://localhost:3333/](http://localhost:3333/)
 To build for production, run:
 
 ```bash
-cd client
 npm run build
 ```
 
