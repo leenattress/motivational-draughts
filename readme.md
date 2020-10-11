@@ -65,7 +65,18 @@ A production build includes:
 To run the unit tests (for the shared lib `draughts.ts` as well) once, run:
 
 ```bash
-npm test.spec
+npm run test.spec
+```
+
+**Expected output:**
+```
+PASS  src/libs/draughts/draughts.spec.ts
+
+Test Suites: 1 passed, 1 of 2 total
+Tests:       33 passed, 33 total
+Snapshots:   0 total
+Time:        3.172 s
+Ran all test suites.
 ```
 
 To run the unit tests and watch for file changes during development, run:
