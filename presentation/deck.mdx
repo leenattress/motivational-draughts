@@ -1,0 +1,271 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark } from "@code-surfer/themes";
+
+export const theme = vsDark;
+
+# Hello 👋
+
+I'm [Lee Nattress](https://github.com/leenattress) and I code.
+
+---
+
+# Contents
+
+  - ⛃ Draughts discussion with way too many emoji
+
+---
+
+# Draughts
+
+---
+
+# Architecture
+
+- Frontend is a StencilJs application
+- Ionic framework
+- Mobile first
+- Progressive Web Application
+- No server/backend required
+
+--- 
+
+# 🤔
+
+- Hosted in a bucket (cheap!)
+- Behind a Cloudfront Distribution (fast!)
+- Bucket is not public (safe!)
+- Trivial to update (CI/CD!)
+- No traffic limit (scales!)
+
+--- 
+
+# 💎 Clarity - Readme
+
+- What makes a good `readme.md`
+- How to get started
+- How to play
+
+---
+
+# Technical tradeoffs
+
+  - Reusability for time
+  - Client only (It was nearly multi-player 🏸)
+  - Ditched SVG for DOM (🏃‍♀️ it was fast enough...)
+  - Simpler visual design than I wanted
+  - CSS trickery
+
+---
+
+# 🎯 Correctness
+
+---
+
+## What's In?
+
+- Draughts re-usable library
+- Jest unit tested, green and red paths
+- Taking turns, moving properly, capturing, kings. 
+- Serverless (sls) deployment yml with bucket and cloudfront ⛅
+- Fully playable locally on desktop, mobile, tablet
+- 🔊 Snazzy(tm) sound effects
+
+--- 
+
+## What's Out?
+
+- Win condition (out of time! ⏰)
+- 'You must capture if you can'
+- The magical multiplayer I wanted 🧙‍♂️
+- e2e Testing! Oh no! 😥
+
+---
+
+# 🧐 Code quality
+
+- Prettify on save
+- TypeScript
+- Good unit tests
+
+---
+
+> 🤔 Is the code simple, easy to understand, and maintainable? Is there any code smells or other red flags? Does object-oriented code follow principles such as the single responsibility principle? Is the coding style consistent with the language's guidelines? Is it consistent throughout the codebase?
+
+---
+
+<CodeSurfer theme={vsDark}>
+
+```js
+// Single-responsibility principle
+/**
+  * getId
+  * Creates a short ID from a character set, of a required length
+  *  */
+getId(length: number) {
+    var result = '';
+    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var charactersLength = characters.length;
+    for (var i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    }
+    return result;
+}
+```
+
+
+```js 2:2
+  // Green apples, random strings? 
+  it('🍏 [RUGBUR] should setup the board', () => {
+      draughts.setupGame('test');
+      const game: Game = draughts.getGame('test');
+      expect(game.spaces.length).toBe(8); // 8 rows
+      expect(game.spaces[0].length).toBe(8); // 8 columns
+  });
+```
+
+```js 2:2 
+  it('🍏 [RUGBUR] should setup the board', () => {
+      draughts.setupGame('test');
+      const game: Game = draughts.getGame('test');
+      expect(game.spaces.length).toBe(8); // 8 rows
+      expect(game.spaces[0].length).toBe(8); // 8 columns
+  });
+```
+
+```js 3:5 
+  it('🍏 [RUGBUR] should setup the board', () => {
+      draughts.setupGame('test');
+      const game: Game = draughts.getGame('test');
+      expect(game.spaces.length).toBe(8); // 8 rows
+      expect(game.spaces[0].length).toBe(8); // 8 columns
+  });
+```
+
+```js 3:3 
+  it('🍎 [OXIEVX] shold throw an error when the game does not exist', () => {
+      expect(() => {
+          draughts.setPlayer('zzxxzxzx', 12, 15, 1)
+      }).toThrow("The game does not exist")
+  });
+```
+
+```js 4:4 
+  it('🍎 [OXIEVX] shold throw an error when the game does not exist', () => {
+      expect(() => {
+          draughts.setPlayer('zzxxzxzx', 12, 15, 1)
+      }).toThrow("The game does not exist")
+  });
+```
+
+</CodeSurfer>
+
+--- 
+
+# 🔒 Security
+
+- No server to interact with
+- 🙄 Bucket is private - CloudFront does all the work.
+
+--- 
+
+# ✅ Testing
+
+- Jest spec tests covering `draughts.ts`
+  - 30+ tests
+  - Red and green path
+  - Correct error trapping/bubbling
+  - Bonus: Errors thrown used in frontend
+- `draughts.ts` designed to be used in multiplayer server
+- No integration tests 😭 (time!) 
+
+---
+
+> { 🦜 Talk about testing here }
+
+---
+
+# 📊 UX
+
+- Beautiful Ionic Re-usables
+- Custom board web-component
+- StencilJs reactivity
+- Mobile first (📱 Tappy tap) 
+
+---
+
+<CodeSurfer theme={vsDark}>
+
+```html
+<app-board gamestate={this.gamestate}></app-board>
+```
+
+</CodeSurfer>
+
+---
+
+![board.png](https://i.imgur.com/YoV3zS0.png)
+
+---
+
+# 🔧 Technical Choices
+
+---
+
+> 📦 Stencil was chosen becasuse I have a strong professional working knowledge of it. It makes SPA, as the requirement specified.
+
+---
+
+> 📱 Ionic gave me a headstart on this UI. I did not want to be bogged down by fiddly buttons while making the board and rules.
+
+---
+
+> 🌳 AWS s3 and cloudfront for deployment because serverless and daily experience.
+
+---
+
+# 🗻 Scalability
+
+- 🤑 The only limit to the amount of users who can play Draughts, is our wallet.
+- AWS makes sure our SPA will not slow down or go offline
+
+---
+
+# Production-readiness
+
+Does the code include monitoring? logging? - **CloudWatch**
+
+Proper error handling? - Draughts library has wonderful throws.
+
+---
+
+# Next Steps
+
+- Nest server with socket io for multiplayer
+- Add in the missing parts!
+- Prettier graphics
+- Cognito login and persistent win/loss record with DynamoDb
+- Maybe mobile app on app store with ads
+
+---
+
+
+# I Learned About
+
+- Different variations of draughts (Malaysian checkers! 12x12 board!)
+- 500,995,484,682,338,672,639 possible positions
+- The unbeatable computer is called 'Chinook'
+- First draughts program: February 1951
+- Games have 'Notation'.
+- 😤 *huffing*
+
+---
+
+# Thanks for Watching!
+
+Q/A!
+
+😍
