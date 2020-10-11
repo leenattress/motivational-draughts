@@ -25,7 +25,7 @@ To feel great right **now**, check out the [demo](https://df6elh427uk9i.cloudfro
 
 ## Getting Started
 
-To start hacking this mad thing, clone this repo to a new directory:
+To contribute, clone this repo to a new directory:
 
 ```bash
 git clone https://github.com/leenattress/motivational-draughts.git
