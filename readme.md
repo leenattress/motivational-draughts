@@ -90,7 +90,7 @@ sls deploy --infraStackName STACK_NAME --aws-profile AWS_PROFILE
 
 Where `STACK_NAME` is a string, like `lee` or `production` and where `AWS_PROFILE` is a profile found in your `~/.aws/credentials` file.
 
-Pnce deployed, get your CloudFront url by running
+Once deployed, get your CloudFront url by running
 
 ```bash
 sls info --infraStackName STACK_NAME --aws-profile AWS_PROFILE --verbose
