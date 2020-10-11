@@ -28,8 +28,18 @@ To feel great right **now**, check out the [demo](https://df6elh427uk9i.cloudfro
 To start hacking this mad thing, clone this repo to a new directory:
 
 ```bash
-git clone https://github.com/leenattress/svelte-draughts.git
+git clone https://github.com/leenattress/motivational-draughts.git
 ```
+
+## Develop
+
+To develop, run:
+
+```bash
+cd client
+npm start
+```
+Then visit: [http://localhost:3333/](http://localhost:3333/)
 
 
 ## Production
@@ -37,6 +47,7 @@ git clone https://github.com/leenattress/svelte-draughts.git
 To build for production, run:
 
 ```bash
+cd client
 npm run build
 ```
 
